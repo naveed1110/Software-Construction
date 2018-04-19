@@ -1,3 +1,54 @@
-something is better than nothing
+This is better than your nothing
 bye
 yee
+****Raitlay Bhalu****
+
+import java.util.Scanner;
+import java.util.regex.*;
+
+public class regex {
+
+	public static void main(String [] args){
+
+		Scanner input= new Scanner(System.in);
+		String given;
+		
+		System.out.println("Enter the String Whose Regex you want to Check..");
+		given=input.nextLine();
+		
+		String pattern="\\+|-|\\*|/|%";
+		
+		Pattern ptrn=Pattern.compile(pattern);
+		
+		Matcher mat=ptrn.matcher(given);
+		
+		int pluscount=0, minuscount=0 ,divcount=0 ,mulcount=0, percentcount=0;
+		
+		while(mat.find()){
+			
+			if(mat.group().equals("+")){
+				pluscount++;
+			}
+			if(mat.group().equals("-")){
+				minuscount++;
+			}
+			if(mat.group().equals("/")){
+				divcount++;
+			}
+			if(mat.group().equals("*")){
+				mulcount++;
+			}
+			if(mat.group().equals("%")){
+				percentcount++;
+			}
+			
+		}
+		
+		System.out.println("Plus ( + ) ="+pluscount);
+		System.out.println("Minus ( - ) ="+minuscount);
+		System.out.println("Multiply ( * ) ="+mulcount);
+		System.out.println("Divide ( / ) ="+divcount);
+		System.out.println("Percent ( % ) ="+percentcount);
+		
+	}
+}
